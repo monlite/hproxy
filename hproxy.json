@@ -1,0 +1,15 @@
+{
+  "id_rsa": "$HOME/.ssh/id_rsa",
+  "local": "127.0.0.1:1315",
+  "remote": "ssh://example.com:22",
+  "blocked": [
+    "golang.org",
+    "google.com",
+    "google.co.jp",
+    "googleapis.com",
+    "googleusercontent.com",
+    "google-analytics.com",
+    "twitter.com",
+    "youtube.com"
+  ]
+}
