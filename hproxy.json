@@ -1,7 +1,8 @@
 {
   "id_rsa": "$HOME/.ssh/id_rsa",
-  "local": "127.0.0.1:1315",
-  "remote": "ssh://example.com:22",
+  "local_smart": "127.0.0.1:1315",
+  "local_normal": "127.0.0.1:1316",
+  "remote": "ssh://user@example.com:22",
   "blocked": [
     "golang.org",
     "google.com",
