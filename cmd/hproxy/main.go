@@ -14,7 +14,7 @@ import (
 
 var (
 	FConfig = flag.String("config", "$HOME/.config/hproxy.json", "config file")
-	FSuffix = flag.String("suffix", "", "print pulbic suffix for the given domain")
+	FSuffix = flag.String("suffix", "", "print public suffix for the given domain")
 	FReload = flag.Bool("reload", false, "send signal to reload config file")
 )
 
@@ -29,7 +29,6 @@ func serve() {
 
 	L.Printf("Connecting remote SSH server: %s\n", c.File.RemoteServer)
 
-	wait := make(chan int)
 	go func() {
 		normal, err := NewServer(NormalSrv, c)
 		if err != nil {
@@ -37,7 +36,6 @@ func serve() {
 		}
 		L.Printf("Local normal HTTP proxy: %s\n", c.File.LocalNormalServer)
 		L.Fatalln(http.ListenAndServe(c.File.LocalNormalServer, normal))
-		wait <- 1
 	}()
 
 	go func() {
@@ -47,9 +45,9 @@ func serve() {
 		}
 		L.Printf("Local smart HTTP proxy: %s\n", c.File.LocalSmartServer)
 		L.Fatalln(http.ListenAndServe(c.File.LocalSmartServer, smart))
-		wait <- 1
 	}()
-	<-wait
+
+	select {}
 }
 
 func printSuffix() {
