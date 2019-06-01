@@ -26,8 +26,8 @@ func BeautifySize(s int64) string {
 	case s < 1<<10:
 		return strconv.FormatInt(s, 10) + "B"
 	case s < 1<<20:
-		return strconv.FormatInt(s/1<<20, 10) + "KB"
+		return strconv.FormatInt(s/(1<<10), 10) + "KB"
 	default:
-		return strconv.FormatInt(s/1<<20, 10) + "MB"
+		return strconv.FormatInt(s/(1<<20), 10) + "MB"
 	}
 }
