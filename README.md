@@ -1,7 +1,7 @@
 ## hproxy
 HTTP/HTTPS proxy over SSH.
 
-## Configueration
+## Configuration
 ### Config file
 Default path is `$HOME/.config/hproxy.json`, can be set when start program
 ```
